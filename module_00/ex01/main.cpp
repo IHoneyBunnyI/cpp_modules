@@ -62,6 +62,7 @@ void print_line(std::string s)
 void search(Contact contact[8])
 {
 	int i = -1;
+	int index;
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	while (!contact[++i].is_empty() && i < 8)
@@ -74,6 +75,23 @@ void search(Contact contact[8])
 		print_line(contact[i].nickname);
 		std::cout << std::endl;
 	}
+	std::cout << "whose information to view (id) > ";
+	std::cin >> index;
+	if (!contact[index].is_empty())
+	{
+		std::cout << "first name:     ";
+		std::cout << contact[index].first_name << std::endl;
+		std::cout << "last name:      ";
+		std::cout << contact[index].last_name << std::endl;
+		std::cout << "nickname:       ";
+		std::cout << contact[index].nickname << std::endl;
+		std::cout << "phone number:   ";
+		std::cout << contact[index].phone_number << std::endl;
+		std::cout << "darkest secret: ";
+		std::cout << contact[index].darkest_secret << std::endl;
+	}
+	else
+		std::cout << "\033[31mno such contact exists\033[0m" << std::endl;
 }
 
 int main()
