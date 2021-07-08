@@ -4,6 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 FILES = main.cpp\
 	Contact.cpp\
+	Phonebook.cpp\
 
 SRCS = $(addprefix srcs/, $(FILES))
 

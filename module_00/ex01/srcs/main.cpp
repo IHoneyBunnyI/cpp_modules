@@ -1,4 +1,5 @@
 #include "../includes/Contact.hpp"
+#include "../includes/Phonebook.hpp"
 
 int ft_stoi(std::string s)
 {
@@ -21,12 +22,11 @@ int ft_stoi(std::string s)
 int full_exit(void)
 {
 	std::cout << "Bye Bye" << std::endl;
-	return 0;
+	exit(0);
 }
 
-void add(Contact contact[8])
+void add(Contact contact[8], int index)
 {
-	int index = -1;
 	for (int i = 0; i < 8; i++)
 	{
 		if (contact[i].is_empty())
@@ -124,20 +124,6 @@ void search(Contact contact[8])
 
 int main()
 {
-	std::string option;
-	std::cout << "allowed commands:\033[32m\n-SEARCH\n-ADD\n-EXIT\n\033[0m" << std::endl;
-	Contact contact[8];
-	while (!false)
-	{
-		std::cout << "\033[01mchoose what you are going to do > \033[0m";
-		std::cin >> option;
-		if (std::cin.eof())
-			return(full_exit());
-		if (option == "ADD")
-			add(contact);
-		else if (option == "SEARCH")
-			search(contact);
-		else if (option == "EXIT")
-			return(full_exit());
-	}
+	Phonebook phonebook;
+	phonebook.run();
 }
