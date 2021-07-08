@@ -1,11 +1,16 @@
 NAME = phonebook
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
-SRCS = main.cpp\
-       Contact.cpp
+FILES = main.cpp\
+	Contact.cpp\
+
+SRCS = $(addprefix srcs/, $(FILES))
 
 OBJS = $(SRCS:.cpp=.o)
+
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
