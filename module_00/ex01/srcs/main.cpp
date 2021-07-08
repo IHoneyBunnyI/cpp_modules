@@ -1,4 +1,22 @@
-#include "Contact.hpp"
+#include "../includes/Contact.hpp"
+
+int ft_stoi(std::string s)
+{
+	int i = 0;
+	int res = 0;
+	if (s[0] != '+' && s[0] != '-' && (s[0] < '0' || s[0] > '9'))
+		return (-1);
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		res = (res * 10) + s[i] - '0';
+		i++;
+	}
+	if (s[0] == '-')
+		res = -res;
+	return (res);
+}
 
 int full_exit(void)
 {
@@ -22,19 +40,19 @@ void add(Contact contact[8])
 	std::string in;
 	std::cout << "enter first name? > ";
 	std::cin >> in;
-	contact[index].first_name = in;
+	contact[index].set_first_name(in);
 	std::cout << "enter last name? > ";
 	std::cin >> in;
-	contact[index].last_name = in;
+	contact[index].set_last_name(in);
 	std::cout << "enter nickname? > ";
 	std::cin >> in;
-	contact[index].nickname = in;
+	contact[index].set_nickname(in);
 	std::cout << "enter phone number? > ";
 	std::cin >> in;
-	contact[index].phone_number = in;
+	contact[index].set_phone_number(in);
 	std::cout << "enter darkest secret? > ";
 	std::cin >> in;
-	contact[index].darkest_secret = in;
+	contact[index].set_darkest_secret(in);
 }
 
 void print_line(std::string s)
@@ -60,41 +78,53 @@ void print_line(std::string s)
 void search(Contact contact[8])
 {
 	int i = -1;
+	std::string s_index;
 	int index;
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	while (!contact[++i].is_empty() && i < 8)
 	{
 		std::cout << "         " << i << "|";
-		print_line(contact[i].first_name);
+		print_line(contact[i].get_first_name());
 		std::cout << "|";
-		print_line(contact[i].last_name);
+		print_line(contact[i].get_last_name());
 		std::cout << "|";
-		print_line(contact[i].nickname);
+		print_line(contact[i].get_nickname());
 		std::cout << std::endl;
 	}
 	std::cout << "whose information to view (id) > ";
-	std::cin >> index;
-	if (!contact[index].is_empty())
+	std::cin >> s_index;
+	index = ft_stoi(s_index);
+	if (std::cin.eof())
+	{
+		std::cout << "\033[31mError unexpected EOF\033[0m" << std::endl;
+		exit(1);
+	}
+	else if ((std::cin.fail()) || index > 7 || index < 0 || index == -1)
+	{
+		std::cout << "\033[31mno such contact exists\033[0m" << std::endl;
+		return ;
+	}
+	else if (!contact[index].is_empty())
 	{
 		std::cout << "first name:     ";
-		std::cout << contact[index].first_name << std::endl;
+		std::cout << contact[index].get_first_name() << std::endl;
 		std::cout << "last name:      ";
-		std::cout << contact[index].last_name << std::endl;
+		std::cout << contact[index].get_last_name() << std::endl;
 		std::cout << "nickname:       ";
-		std::cout << contact[index].nickname << std::endl;
+		std::cout << contact[index].get_nickname() << std::endl;
 		std::cout << "phone number:   ";
-		std::cout << contact[index].phone_number << std::endl;
+		std::cout << contact[index].get_phone_number() << std::endl;
 		std::cout << "darkest secret: ";
-		std::cout << contact[index].darkest_secret << std::endl;
+		std::cout << contact[index].get_darkest_secret() << std::endl;
 	}
 	else
-		std::cout << "\033[31mno such contact exists\033[0m" << std::endl;
+		std::cout << "\033[31mEmpty contact\033[0m" << std::endl;
 }
 
 int main()
 {
-	std::string option = "AAAA";
+	std::string option;
 	std::cout << "allowed commands:\033[32m\n-SEARCH\n-ADD\n-EXIT\n\033[0m" << std::endl;
 	Contact contact[8];
 	while (!false)
