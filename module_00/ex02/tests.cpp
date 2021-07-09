@@ -12,6 +12,7 @@
 #include <functional>
 #include "Account.hpp"
 
+#include <iostream>
 
 int		main( void ) {
 
@@ -49,7 +50,7 @@ int		main( void ) {
 
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
-
+	std::cout << "\033[32m";
 	for ( acc_int_t it( acc_begin, wit_begin );
 		  it.first != acc_end && it.second != wit_end;
 		  ++(it.first), ++(it.second) ) {
