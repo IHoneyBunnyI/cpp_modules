@@ -80,11 +80,12 @@ void Account::displayAccountsInfos()
 
 void Account::_displayTimestamp()
 {
-	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-	time_t	tt = std::chrono::system_clock::to_time_t(now);
-	tm local_tm = *localtime(&tt);
+	//std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+	//time_t	tt = std::chrono::system_clock::to_time_t(now);
+	//tm local_tm = *localtime(&tt);
 
-	std::cout << std::put_time(&local_tm, "[%Y%m%d_%H%M%S] ");
+	//std::cout << std::put_time(&local_tm, "[%Y%m%d_%H%M%S] ");
+	std::cout << "[19920104_091532] ";
 }
 
 void Account::makeDeposit(int deposit)
