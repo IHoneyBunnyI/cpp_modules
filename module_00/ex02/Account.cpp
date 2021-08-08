@@ -9,6 +9,15 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
+void Account::displayAccountsInfos()
+{
+	Account::_displayTimestamp();
+	std::cout << "accounts:" << _nbAccounts << ";";
+	std::cout << "total:" << _totalAmount << ";";
+	std::cout << "deposits:" << _totalNbDeposits << ";";
+	std::cout << "withdrawals:" << _totalNbWithdrawals << std::endl;
+}
+
 Account::Account(int initial_deposit)
 {
 	Account::_displayTimestamp();
@@ -69,23 +78,14 @@ int Account::getNbWithdrawals()
 	return (_totalNbWithdrawals);
 }
 
-void Account::displayAccountsInfos()
-{
-	Account::_displayTimestamp();
-	std::cout << "accounts:" << _nbAccounts << ";";
-	std::cout << "total:" << _totalAmount << ";";
-	std::cout << "deposits:" << _totalNbDeposits << ";";
-	std::cout << "withdrawals:" << _totalNbWithdrawals << std::endl;
-}
-
 void Account::_displayTimestamp()
 {
-	//std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-	//time_t	tt = std::chrono::system_clock::to_time_t(now);
-	//tm local_tm = *localtime(&tt);
+	std::chrono::system_clock::time_point time_point = std::chrono::system_clock::now();
+	time_t	tt = std::chrono::system_clock::to_time_t(time_point);
+	tm local_tm = *localtime(&tt);
 
-	//std::cout << std::put_time(&local_tm, "[%Y%m%d_%H%M%S] ");
-	std::cout << "[19920104_091532] ";
+	std::cout << std::put_time(&local_tm, "[%Y%m%d_%H%M%S] ");
+	//std::cout << "[19920104_091532] ";
 }
 
 void Account::makeDeposit(int deposit)
