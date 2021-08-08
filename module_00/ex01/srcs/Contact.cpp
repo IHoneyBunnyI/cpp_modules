@@ -1,4 +1,4 @@
-#include "../includes/Contact.hpp"
+#include "Contact.hpp"
 
 int Contact::is_empty(void)
 {

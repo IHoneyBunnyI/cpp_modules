@@ -1,5 +1,5 @@
-#include "../includes/Contact.hpp"
-#include "../includes/Phonebook.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
 int ft_stoi(std::string s)
 {

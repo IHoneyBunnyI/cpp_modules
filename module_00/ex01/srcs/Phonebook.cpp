@@ -1,4 +1,4 @@
-#include "../includes/Phonebook.hpp"
+#include "Phonebook.hpp"
 
 void Phonebook::run()
 {
