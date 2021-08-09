@@ -1,12 +1,13 @@
 NAME = zombie
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = #-Wall -Wextra -Werror
 
 FILES = main.cpp\
 	newZombie.cpp\
 	randomChump.cpp\
 	Zombie.cpp
+SRCS = $(FILES)
 
 OBJS = $(SRCS:.cpp=.o)
 
