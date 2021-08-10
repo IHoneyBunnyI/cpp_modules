@@ -2,5 +2,9 @@
 
 int main()
 {
-	Zombie *a = new Zombie();
+	Zombie *b = newZombie("all");
+	b->announce();
+	delete b;
+	Zombie a("all2");
+	randomChump("all3");
 }
