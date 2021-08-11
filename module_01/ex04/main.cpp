@@ -35,6 +35,6 @@ int main(int ac, char **av)
 		std::string line;
 		std::getline(file_in, line);
 		std::string new_line = ft_replace(line, s1, s2);
-		file_out << new_line;
+		file_out << new_line << std::endl;
 	}
 }
