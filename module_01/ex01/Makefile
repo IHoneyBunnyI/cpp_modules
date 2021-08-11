@@ -1,23 +1,22 @@
 NAME = zombie
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 FILES = main.cpp\
-	newZombie.cpp\
-	randomChump.cpp\
-	Zombie.cpp
+		Zombie.cpp\
+		ZombieHorde.cpp\
 
 SRCS = $(FILES)
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o : %.cpp
+%.o : %.cpp Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME): $(OBJS)
+$(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
