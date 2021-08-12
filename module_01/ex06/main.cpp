@@ -9,7 +9,7 @@ int main(int ac, char **av)
 		karen.complain(av[1]);
 		return 0;
 	default:
-		std::cout << "Error parametr" << std::endl;
+		std::cout << "\033[31mError parametr\033[0m" << std::endl;
 		return 0;
 	}
 }

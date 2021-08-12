@@ -29,22 +29,22 @@ void Karen::complain(std::string level)
 	while (levels[index_level] != level && index_level < 4)
 		index_level++;
 
-	void (Karen::*function)();
-
 	switch (index_level)
 	{
 	case 0:					//fall-through
-		function = &Karen::debug;
+		this->debug();
+		std::cout << std::endl;
 	case 1:
-		function = &Karen::info;
+		this->info();
+		std::cout << std::endl;
 	case 2:
-		function = &Karen::warning;
+		this->warning();
+		std::cout << std::endl;
 	case 3:
-		function = &Karen::error;
+		this->error();
 		break;
 	default:
 		std::cout << "I dont't know this level" << std::endl;
 		return ;
 	}
-	(this->*function)();
 }
