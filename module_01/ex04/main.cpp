@@ -4,22 +4,18 @@
 #include <fstream>
 #include <string>
 
-std::string replaceAll( std::string const& original, std::string const& from, std::string const& to )
+std::string replace_all(std::string & str, std::string & find, std::string & replace)
 {
-	std::string new_line;
-	std::string results;
-	std::string::const_iterator end = original.end();
-	std::string::const_iterator current = original.begin();
-	std::string::const_iterator next = std::search( current, end, from.begin(), from.end() );
-	while ( next != end )
-	{
-		results.append( current, next );
-		results.append( to );
-		current = next + from.size();
-		next = std::search( current, end, from.begin(), from.end() );
+	std::string result;
+	size_t find_len = find.size();
+	size_t pos,from=0;
+	while ( std::string::npos != (pos=str.find(find,from)) ) {
+		result.append( str, from, pos-from );
+		result.append( replace );
+		from = pos + find_len;
 	}
-	results.append( current, next );
-	return results;
+	result.append( str, from , std::string::npos );
+	return result;
 }
 
 std::string upper(std::string str)
@@ -44,7 +40,7 @@ int main(int ac, char **av)
 	{
 		std::string line;
 		std::getline(file_in, line);
-		line = replaceAll(line, s1, s2);
+		line = replace_all(line, s1, s2);
 		if (!file_in.eof())
 			file_out << line << std::endl;
 	}
