@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Fixed.hpp"
 
+const int Fixed::number_of_fractional_bits = 8;
+
 Fixed::Fixed()
 {
 	this->value = 0;
