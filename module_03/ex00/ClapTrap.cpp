@@ -39,26 +39,32 @@ ClapTrap &ClapTrap::operator = (const ClapTrap& clapTrap)
 	return (*this);
 }
 
-std::string ClapTrap::getName() const
+void ClapTrap::attack(const std::string& target)
 {
-	return (this->name);
+	std::cout << "ClapTrap " << this->name << " attacks " << target <<" , causing " << this->attackDamage << " points of damage! " << std::endl;
+    this->energyPoint--;
 }
 
-int ClapTrap::getHitPoint() const
+void ClapTrap::takeDamage(unsigned int amount)
 {
-	return (this->hitpoint);
+	this->hitpoint -= amount;
+	if (this->hitpoint <= 0)
+	{
+		std::cout << "\033[31m" << this->name << " is Dead" << "\033[0m" << std::endl;
+		return;
+	}
+	std::cout << this->name << " take " << amount << " damage and he has " <<
+	this->hitpoint << " Hitpoints" << std::endl;
+
 }
-
-int ClapTrap::getEnergyPoint() const
+void ClapTrap::beRepaired(unsigned int amount)
 {
-	return (this->energyPoint);
-}
-
-
-std::ostream& operator << (std::ostream &cout, const ClapTrap& clapTrap)
-{
-	cout << "\033[32m" << clapTrap.getName() <<
-	" has " << clapTrap.getHitPoint() << " Hit point and "
-	<< clapTrap.getEnergyPoint() << " Energy Point" << "\033[0m";
-	return cout;
+	if (this->energyPoint <= 0)
+	{
+		std::cout << this->name << " haven't energy " << std::endl;
+		return ;
+	}
+	std::cout << this->name << " take " << amount << " heals ";
+	this->hitpoint += amount;
+	std::cout << "and he have " << this->hitpoint << " hitpoints" << std::endl;
 }
