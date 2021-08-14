@@ -34,7 +34,10 @@ public:
 	Fixed operator++(int); // версия постфикс
 	Fixed operator--(int); // версия постфикс
 
-
+	static Fixed& min(Fixed& a, Fixed& b);
+	static Fixed& max(Fixed& a, Fixed& b);
+	static const Fixed& min(const Fixed& a, const Fixed& b);
+	static const Fixed&	max(const Fixed& a, const Fixed& b);
 
 	int getRawBits() const;
 	void setRawBits(int const raw);
