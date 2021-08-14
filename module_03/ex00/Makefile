@@ -1,9 +1,9 @@
-NAME =
+NAME = claptrap
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 
 FILES = main.cpp\
-		 ClapTrap.cpp\
+		ClapTrap.cpp\
 
 SRCS = $(FILES)
 
