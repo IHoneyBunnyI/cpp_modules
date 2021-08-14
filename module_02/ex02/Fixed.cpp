@@ -67,12 +67,12 @@ std::ostream& operator << (std::ostream& cout, const Fixed& fixed)
 	return (cout);
 }
 
-bool Fixed::operator > (const Fixed& fixed)
+bool Fixed::operator > (const Fixed& fixed) const
 {
 	return (this->value > fixed.getRawBits());
 }
 
-bool Fixed::operator < (const Fixed& fixed)
+bool Fixed::operator < (const Fixed& fixed) const
 {
 	return (this->value < fixed.getRawBits());
 }
@@ -155,22 +155,30 @@ Fixed Fixed::operator--(int)
 	return (for_return);
 }
 
-Fixed &	Fixed::min( Fixed & a, Fixed & b )
+Fixed &	Fixed::min(Fixed& a, Fixed& b)
 {
-	return ((a < b) ? a : b);
+	if (a < b)
+		return a;
+	return b;
 }
 
-const Fixed &	Fixed::min( const Fixed & a, const Fixed & b )
+Fixed &	Fixed::max(Fixed& a, Fixed& b)
 {
-	return ((a < b) ? a : b);
+	if (a > b)
+		return a;
+	return b;
 }
 
-Fixed &	Fixed::max( Fixed & a, Fixed & b )
+const Fixed &	Fixed::min(const Fixed& a, const Fixed& b)
 {
-	return ((a > b) ? a : b);
+	if (a < b)
+		return a;
+	return b;
 }
 
-const Fixed &	Fixed::max( const Fixed & a, const Fixed & b )
+const Fixed &	Fixed::max(const Fixed& a, const Fixed& b)
 {
-	return ((a > b) ? a : b);
+	if (a > b)
+		return a;
+	return b;
 }
