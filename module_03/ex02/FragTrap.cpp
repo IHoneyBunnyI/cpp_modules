@@ -33,11 +33,11 @@ FragTrap &FragTrap::operator = (const FragTrap &fragtrap)
 	return (*this);
 }
 
-//void FragTrap::attack(const std::string target)
-//{
-	//std::cout << "FragTrap " << this->name << " attacks " << target <<" , causing " << this->attackDamage << " points of damage! " << std::endl;
-    //this->energyPoint--;
-//}
+void FragTrap::attack(const std::string target)
+{
+	std::cout << "FragTrap " << this->name << " attacks " << target <<" , causing " << this->attackDamage << " points of damage! " << std::endl;
+	this->energyPoint--;
+}
 
 void FragTrap::highFivesGuys(void)
 {
