@@ -1,9 +1,10 @@
-NAME = claptrap
+NAME = scavtrap
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 
 FILES = main.cpp\
 		ClapTrap.cpp\
+		ScavTrap.cpp\
 
 SRCS = $(FILES)
 
