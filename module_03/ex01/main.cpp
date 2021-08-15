@@ -26,6 +26,8 @@ int main()
 	empty = ScavTrap("LOL");
 	empty.attack("KEKUS");
 	std::cout << "=============" << std::endl;
+	ScavTrap copy(empty);
+	copy.attack("another copy");
 	std::cout << "=============" << std::endl;
 	ScavTrap scavTrap("SCAV");
 	scavTrap.attack("Mikky");
