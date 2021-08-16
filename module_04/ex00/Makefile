@@ -1,14 +1,17 @@
-NAME =
+NAME = animal
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -Iincludes
 
-FILES =
+FILES = Animals.cpp\
 
-SRCS = $(addprefix srcs/, $(FILES))
+
+SRCS = $(FILES)
+
+HEADERS = Animals.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o : %.cpp Makefile
+%.o : %.cpp $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
