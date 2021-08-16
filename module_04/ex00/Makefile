@@ -1,22 +1,22 @@
 NAME = animal
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror
 
-FILES = Animals.cpp\
-
+FILES = main.cpp\
+		Animal.cpp\
+		Cat.cpp\
+		Dog.cpp\
 
 SRCS = $(FILES)
 
-HEADERS = Animals.hpp
-
 OBJS = $(SRCS:.cpp=.o)
 
-%.o : %.cpp $(HEADERS)
+%.o : %.cpp Makefile Animals.hpp Dog.hpp Cat.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) 
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
