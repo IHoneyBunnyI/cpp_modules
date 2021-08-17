@@ -1,4 +1,4 @@
-NAME = animal
+NAME = animals
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 
@@ -6,12 +6,14 @@ FILES = main.cpp\
 		Animal.cpp\
 		Cat.cpp\
 		Dog.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp\
 
 SRCS = $(FILES)
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o : %.cpp Makefile Animals.hpp Dog.hpp Cat.hpp
+%.o : %.cpp Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
