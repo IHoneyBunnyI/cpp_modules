@@ -26,6 +26,7 @@ int main()
 
 	delete j;//should not create a leak
 	delete i;
+
 	std::cout << "===========================" << std::endl;
 	std::cout << "===========================" << std::endl;
 	std::cout << "===========================" << std::endl;
