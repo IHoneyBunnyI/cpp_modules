@@ -6,11 +6,13 @@ FILES = main.cpp\
 		AMateria.cpp\
 		Cure.cpp\
 		Ice.cpp\
+		Character.cpp\
 
 HEADERS = AMateria.hpp\
 		  Cure.hpp\
 		  Ice.hpp\
 		  ICharacter.hpp\
+		  Character.hpp\
 
 SRCS = $(FILES)
 

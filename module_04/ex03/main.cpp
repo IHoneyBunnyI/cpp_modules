@@ -2,6 +2,7 @@
 #include "Cure.hpp"
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 int main()
 {
@@ -22,6 +23,9 @@ int main()
 	std::cout << "clone = " << clone_ice->getType() << std::endl;
 	delete clone_cure;
 	delete clone_ice;
+	std::cout << "==============================" << std::endl;
+	ICharacter *character = new Character("Stive");
+	std::cout << character->getName() << std::endl;
 	std::cout << "==============================" << std::endl;
 	//while (1);
 }
