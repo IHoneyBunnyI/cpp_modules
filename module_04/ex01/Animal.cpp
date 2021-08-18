@@ -1,6 +1,9 @@
 #include "Animal.hpp"
 
-Animal::Animal(): type("Animal"){}
+Animal::Animal(): type("Animal")
+{
+	std::cout << "Animal constructor" << std::endl;
+}
 
 Animal::~Animal(){}
 

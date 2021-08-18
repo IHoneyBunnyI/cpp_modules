@@ -1,16 +1,35 @@
 #include "Brain.hpp"
 
-Brain::Brain(){}
+Brain::Brain()
+{
+	std::cout << "\033[1;31mBrain constructor\033[0m" << std::endl;
+}
 
-Brain::~Brain(){}
+Brain::~Brain()
+{
+	std::cout << "\033[1;31mBrain destructor\033[0m" << std::endl;
+}
 
 Brain::Brain(const Brain& brain)
 {
 	*this = brain;
 }
 
-Brain &Brain::operator=(const Brain &animal)
+Brain &Brain::operator=(const Brain &brain)
 {
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = brain.ideas[i];
 	return (*this);
 }
 
+void Brain::fillIdeas(std::string idea)
+{
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = idea;
+}
+
+void Brain::printIdeas(int a)
+{
+	for (int i = 0; i < a && i < 100; i++)
+		std::cout << this->ideas[i] << std::endl;
+}
