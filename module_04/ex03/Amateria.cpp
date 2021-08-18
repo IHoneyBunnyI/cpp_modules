@@ -30,9 +30,9 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	if (target.getName() == "ice")
+	if (this->type == "ice")
 		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	if (target.getName() == "cure")
+	else if (this->type == "cure")
 		 std::cout << "* heals " << target.getName() <<"’s wounds *" << std::endl;
 	else
 		 std::cout << "Wrong Materia!" << std::endl;

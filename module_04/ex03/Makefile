@@ -7,12 +7,15 @@ FILES = main.cpp\
 		Cure.cpp\
 		Ice.cpp\
 		Character.cpp\
+		MateriaSource.cpp\
 
 HEADERS = AMateria.hpp\
 		  Cure.hpp\
 		  Ice.hpp\
 		  ICharacter.hpp\
 		  Character.hpp\
+		  IMateriaSource.hpp\
+		  MateriaSource.hpp\
 
 SRCS = $(FILES)
 
