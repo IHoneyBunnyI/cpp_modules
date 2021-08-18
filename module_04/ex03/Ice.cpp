@@ -1,9 +1,10 @@
 #include "Ice.hpp"
+#include "AMateria.hpp"
 
-Ice::Ice(std::string const & type) : AMateria("cure") {}
+Ice::Ice(std::string const & type) : AMateria(type) {}
 
 Ice::Ice() : AMateria() {
-	this->type = "cure";
+	this->type = "ice";
 }
 
 Ice::~Ice() {}
@@ -19,4 +20,9 @@ Ice & Ice::operator=(Ice const &rhs) {
 
 AMateria* Ice::clone() const {
 	return (new Ice(*this));
+}
+
+std::string const &Ice:: getType() const
+{
+	return (this->type);
 }

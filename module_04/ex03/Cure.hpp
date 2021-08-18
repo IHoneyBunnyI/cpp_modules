@@ -3,7 +3,7 @@
 
 #include "AMateria.hpp"
 
-class Cure: AMateria
+class Cure: public AMateria
 {
 	public:
 		Cure();
@@ -12,6 +12,7 @@ class Cure: AMateria
 		Cure(const Cure& ref);
 		Cure& operator = (const Cure& ref);
 		AMateria* clone() const;
+
 		std::string const & getType() const;
 };
 

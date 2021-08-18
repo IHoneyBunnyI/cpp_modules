@@ -1,4 +1,4 @@
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
 AMateria::AMateria(std::string const& type)
@@ -10,6 +10,8 @@ AMateria::AMateria()
 {
 	this->type = "Null";
 };
+
+AMateria::~AMateria(){}
 
 AMateria::AMateria(const AMateria& ref)
 {

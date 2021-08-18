@@ -1,14 +1,22 @@
-NAME =
+NAME = interfaces
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -Iincludes
 
-FILES =
+FILES = main.cpp\
+		AMateria.cpp\
+		Cure.cpp\
+		Ice.cpp\
 
-SRCS = $(addprefix srcs/, $(FILES))
+HEADERS = AMateria.hpp\
+		  Cure.hpp\
+		  Ice.hpp\
+		  ICharacter.hpp\
+
+SRCS = $(FILES)
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o : %.cpp Makefile
+%.o : %.cpp Makefile $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)

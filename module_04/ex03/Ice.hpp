@@ -3,7 +3,7 @@
 
 #include "AMateria.hpp"
 
-class Ice: AMateria
+class Ice: public AMateria
 {
 	public:
 		Ice();
@@ -12,6 +12,7 @@ class Ice: AMateria
 		Ice(const Ice& ice);
 		Ice& operator = (const Ice& ice);
 		AMateria* clone() const;
+
 		std::string const & getType() const;
 };
 
