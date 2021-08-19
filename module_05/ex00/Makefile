@@ -1,6 +1,6 @@
 NAME = bureaucrat
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror
 
 FILES = main.cpp\
 		Bureaucrat.cpp\
@@ -9,15 +9,15 @@ SRCS = $(FILES)
 
 HEADERS = Bureaucrat.hpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o) 
+
+all: $(NAME) 
 
 %.o : %.cpp Makefile $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-all: $(NAME)
-
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME) : $(OBJS) 
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -rf $(OBJS)
