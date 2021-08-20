@@ -1,67 +1,44 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 
-	Bureaucrat stive("Stive", 1);
+	Bureaucrat stive("Stive", 11);
 
+	Form form("FORM", 10, 10);
 	std::cout << stive << std::endl;
-	stive.toLowGrade();
-	std::cout << stive << std::endl;
-	stive.toLowGrade();
-	std::cout << stive << std::endl;
-
-	try 
-	{
-		stive.toHighGrade();
-		stive.toHighGrade();
-		stive.toHighGrade();
-	} 
-	catch (std::exception& ex)
-	{
-		std::cerr << ex.what() << std::endl;
-	}
-	std::cout << stive << std::endl;
-	std::cout << "===================================" << std::endl;
-	Bureaucrat john("John", 150);
-	std::cout << john << std::endl;
-	john.toHighGrade();
-	john.toHighGrade();
-	john.toHighGrade();
-	john.toHighGrade();
-	std::cout << john << std::endl;
-	john.toLowGrade();
-	john.toLowGrade();
-	john.toLowGrade();
+	std::cout << form << std::endl;
+	std::cout << "========================" << std::endl;
 	try
 	{
-		john.toLowGrade();
-		std::cout << john << std::endl;
-		john.toLowGrade();
+		stive.signForm(form);
 	}
 	catch (std::exception& ex)
 	{
-		std::cerr << ex.what() << std::endl;
+		ex.what();
 	}
-	std::cout << john << std::endl;
-	std::cout << "===================================" << std::endl;
+	std::cout << "========================" << std::endl;
 	try
 	{
-		Bureaucrat wrong("Wrong", 200);
-		std::cout << wrong << std::endl;
+		Form r2d2("forma", 10, 10);
+		Bureaucrat alex("Alex", 1);
+		alex.signForm(r2d2);
 	}
-	catch (std::exception& ex)
+	catch (std::exception & ex)
 	{
-		std::cerr << ex.what() << std::endl;
+		std::cout << ex.what();
 	}
+	std::cout << "========================" << std::endl;
 	try
 	{
-		Bureaucrat wrong("Wrong", 0);
-		std::cout << wrong << std::endl;
+		Form r2d2("forma", 170, 10);
+		Bureaucrat alex("Alex", 1);
+		alex.signForm(r2d2);
 	}
-	catch (std::exception& ex)
+	catch (std::exception & r)
 	{
-		std::cerr << ex.what() << std::endl;
+		std::cout << r.what();
 	}
 
 	return 0;
