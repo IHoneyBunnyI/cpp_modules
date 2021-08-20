@@ -3,10 +3,11 @@
 
 #include "Form.hpp"
 
-class PresidentialPardonForm: private Form
+class PresidentialPardonForm: public Form
 {
 	public:
 		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
 		~PresidentialPardonForm();
 		PresidentialPardonForm(const PresidentialPardonForm& ref);
 

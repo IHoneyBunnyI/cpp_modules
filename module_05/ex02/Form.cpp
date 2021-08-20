@@ -32,6 +32,14 @@ Form& Form::operator = (const Form& ref)
 	return (*this);
 }
 
+void Form::beSigned(Bureaucrat &ref)
+{
+	if (ref.getGrade() <= this->gradeToSign && !(this->isSigned))
+		this->isSigned = true;
+	else
+		throw GradeTooLowException();
+}
+
 const char *Form::GradeTooHighException::what() const throw()
 {
 	return ("\033[31mGrade too high Exception\033[0m");

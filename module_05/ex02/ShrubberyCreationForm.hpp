@@ -3,10 +3,11 @@
 
 #include "Form.hpp"
 
-class ShrubberyCreationForm: private Form
+class ShrubberyCreationForm: public Form
 {
 	public:
 		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& ref);
 

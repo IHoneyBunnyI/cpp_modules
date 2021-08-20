@@ -1,14 +1,62 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
 
-	Bureaucrat stive("Stive", 11);
+	Bureaucrat stive("Stive", 1);
+	Bureaucrat john("John", 150);
 	std::cout << stive << std::endl;
+	std::cout << john << std::endl;
+	std::cout << "============================" << std::endl;
 
-	Form form("FORM", 10, 10);
-	std::cout << form << std::endl;
+	ShrubberyCreationForm form("file");
+	try
+	{
+		stive.signForm(form);
+		john.signForm(form);
+		form.execute(stive);
+		form.execute(john);
+	}
+	catch (std::exception& ex)
+	{
+		std:: cout << ex.what() << std::endl;
+	}
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+
+	RobotomyRequestForm form2("AAAA");
+	try
+	{
+		stive.signForm(form2);
+		john.signForm(form2);
+		form2.execute(stive);
+		form2.execute(john);
+	}
+	catch (std::exception& ex)
+	{
+		std:: cout << ex.what() << std::endl;
+	}
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+
+	PresidentialPardonForm form3("Bob");
+	try
+	{
+		stive.signForm(form3);
+		john.signForm(form3);
+		form3.execute(stive);
+		form3.execute(john);
+	}
+	catch (std::exception& ex)
+	{
+		std:: cout << ex.what() << std::endl;
+	}
 	return 0;
 	
 }

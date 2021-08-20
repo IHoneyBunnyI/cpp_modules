@@ -3,9 +3,10 @@
 
 #include "Form.hpp"
 
-class RobotomyRequestForm: private Form
+class RobotomyRequestForm: public Form
 {
 	public:
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm();
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& ref);

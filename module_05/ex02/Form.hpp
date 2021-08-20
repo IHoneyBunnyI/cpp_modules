@@ -19,7 +19,7 @@ class Form
 		Form(std::string name, int gradeToSign, int gradeToExecute);
 		Form& operator = (const Form& ref);
 
-		virtual void beSigned(Bureaucrat& ref) = 0;
+		void beSigned(Bureaucrat& ref);
 
 		class GradeTooHighException: public std::exception
 		{
@@ -37,6 +37,7 @@ class Form
 		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator << (std::ostream& cout, Form& form);
