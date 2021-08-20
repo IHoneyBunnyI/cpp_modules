@@ -8,6 +8,7 @@ FILES = main.cpp\
 		PresidentialPardonForm.cpp\
 		RobotomyRequestForm.cpp\
 		ShrubberyCreationForm.cpp\
+		Intern.cpp\
 
 SRCS = $(FILES)
 
@@ -16,6 +17,7 @@ HEADERS = Bureaucrat.hpp\
 		  PresidentialPardonForm.hpp\
 		  RobotomyRequestForm.hpp\
 		  ShrubberyCreationForm.hpp\
+		  Intern.hpp\
 
 OBJS = $(SRCS:.cpp=.o) 
 

@@ -4,12 +4,9 @@ Form::Form(): name("NoName"), gradeToSign(150), gradeToExecute(150), isSigned(fa
 
 Form::~Form() {}
 
-Form::Form(const Form& ref)
+Form::Form(const Form& ref): name(ref.name), gradeToSign(ref.gradeToSign), gradeToExecute(ref.gradeToExecute)
 {
-	this->name = ref.name;
 	this->isSigned = ref.isSigned;
-	this->gradeToSign = ref.gradeToSign;
-	this->gradeToExecute = ref.gradeToExecute;
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute):	name(name),
@@ -25,10 +22,7 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute):	name(name),
 
 Form& Form::operator = (const Form& ref)
 {
-	this->name = ref.name;
-	this->isSigned = ref.isSigned;
-	this->gradeToSign = ref.gradeToSign;
-	this->gradeToExecute = ref.gradeToExecute;
+	new(this)Form(ref.name, ref.gradeToSign, ref.gradeToExecute);
 	return (*this);
 }
 

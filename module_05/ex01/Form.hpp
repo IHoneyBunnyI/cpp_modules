@@ -7,9 +7,9 @@
 class Form
 {
 	private:
-		std::string name;
-		int gradeToSign;
-		int gradeToExecute;
+		const std::string name;
+		const int gradeToSign;
+		const int gradeToExecute;
 		bool isSigned;
 
 	public:
