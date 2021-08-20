@@ -44,5 +44,25 @@ int main()
 		std::cerr << ex.what() << std::endl;
 	}
 	std::cout << john << std::endl;
+	std::cout << "===================================" << std::endl;
+	try
+	{
+		Bureaucrat wrong("Wrong", 200);
+		std::cout << wrong << std::endl;
+	}
+	catch (std::exception& ex)
+	{
+		std::cerr << ex.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat wrong("Wrong", 0);
+		std::cout << wrong << std::endl;
+	}
+	catch (std::exception& ex)
+	{
+		std::cerr << ex.what() << std::endl;
+	}
+
 	return 0;
 }
