@@ -81,3 +81,17 @@ void Bureaucrat::signForm(Form &form)
 		std::cout << "\033[31mbureaucrat " << this->getName() << " cannot sign " << form.getName() << " form because he can't\033[0m" << std::endl; 
 	}
 }
+
+void Bureaucrat::executeForm(const Form &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << "The bureaucrat " << this->getName() << " execute the form: " << form.getName() << std::endl;
+	}
+	catch (std::exception & r)
+	{
+		std::cout << r.what() << std::endl;
+		std::cout << "The bureaucrat cannot execute this form\n";
+	}
+}

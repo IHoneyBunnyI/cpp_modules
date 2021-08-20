@@ -57,6 +57,13 @@ int main()
 	{
 		std:: cout << ex.what() << std::endl;
 	}
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+	stive.executeForm(form2);
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+	std::cout << "============================" << std::endl;
+	john.executeForm(form2);
 	return 0;
-	
 }

@@ -34,6 +34,8 @@ class Bureaucrat
 		int getGrade() const;
 		void toHighGrade();
 		void toLowGrade();
+
+		void executeForm(const Form &form);
 };
 
 std::ostream& operator << (std::ostream& cout, const Bureaucrat& ref);
