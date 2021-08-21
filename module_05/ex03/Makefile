@@ -1,6 +1,6 @@
 NAME = bureaucrat
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -g
 
 FILES = main.cpp\
 		Bureaucrat.cpp\
