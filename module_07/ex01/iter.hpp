@@ -11,7 +11,7 @@ void cout(T& name)
 template<typename T>
 void multiply(T& name)
 {
-	std::cout << name << std::endl;
+	std::cout << name * 2 << std::endl;
 }
 
 template<typename T>
