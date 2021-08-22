@@ -3,6 +3,26 @@
 #define XGREEN "\033[1;32m"
 #define XWHITE "\033[0m"
 
+class A {
+public:
+	A() {};
+	A(int n) : _n(n) {};
+	~A() {};
+	A(const A & a) { *this = a;};
+	A & operator=(const A & a) { this->_n = a._n; return *this;};
+	int getN() const { return this->_n;};
+	void setN(int i) { this->_n = i;};
+
+private:
+	int _n;
+};
+
+std::ostream  & operator<<(std::ostream & o, A const & a)
+{
+	o << a.getN();
+	return o;
+}
+
 template<typename T>
 void print_arr(Array<T>& ref)
 {
@@ -76,4 +96,12 @@ int main()
 	chars[1] = '"';
 	chars[2] = 'A';
 	print_arr(chars);
+	std::cout << "========================================" << std::endl;
+
+    Array<A>arrClass(5);
+	for (int i = 0; i < 5; ++i) {
+		arrClass[i].setN(i);
+	}
+	print_arr(arrClass);
+    std::cout << "Size: " << XGREEN << arrClass.size() << XWHITE << std::endl;
 }
