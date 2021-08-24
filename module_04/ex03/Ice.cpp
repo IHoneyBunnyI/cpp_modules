@@ -1,9 +1,10 @@
 #include "Ice.hpp"
 #include "AMateria.hpp"
 
-Ice::Ice(std::string const & type) : AMateria(type) {}
+Ice::Ice(std::string const & type){
+this->type = type;}
 
-Ice::Ice() : AMateria() {
+Ice::Ice() {
 	this->type = "ice";
 }
 

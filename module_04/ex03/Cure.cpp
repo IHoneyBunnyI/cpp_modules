@@ -1,9 +1,10 @@
 #include "Cure.hpp"
 #include "AMateria.hpp"
 
-Cure::Cure(std::string const & type) : AMateria(type) {}
+Cure::Cure(std::string const & type){
+this->type = type;}
 
-Cure::Cure() : AMateria() {
+Cure::Cure() {
 	this->type = "cure";
 }
 
