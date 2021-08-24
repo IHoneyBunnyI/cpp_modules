@@ -4,7 +4,6 @@
 #include <numeric>
 #include <iostream>
 
-
 Span::Span(unsigned int N): N(N), counter(0)
 {
 	this->arr.reserve(N);
@@ -25,9 +24,7 @@ Span& Span::operator = (const Span& ref)
 	return (*this);
 }
 
-Span::~Span()
-{
-}
+Span::~Span(){}
 
 void Span::addNumber(int n)
 {
@@ -61,8 +58,8 @@ void Span::BETTERaddNumber(std::vector<int>::iterator start, std::vector<int>::i
 	int a = std::distance(start, end);
 	if (arr.size() + a > this->N)
 		throw std::exception();
+	this->counter += a;
 	arr.insert(arr.begin() + arr.size(), start, end);
-	//std::for_each(start, end, );
 }
 
 static void out(int a)

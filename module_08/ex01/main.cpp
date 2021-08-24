@@ -35,11 +35,14 @@ int main()
 	try
 	{
 		span.BETTERaddNumber(vec.begin(), vec.end());
-		//span.BETTERaddNumber(vec.begin(), vec.end());
+		std::vector<int> vec2(1, 99);
+		span.BETTERaddNumber(vec2.begin(), vec2.end());
 	}
 	catch (std::exception& ex)
 	{
 		std::cout << "\033[1;31mBETTERaddNumber NOT WORK\033[0m" << std::endl;
 	}
 	span.printSpan();
+	std::cout << "shortestSpan = " << span.shortestSpan() << std::endl;
+	std::cout << "longestSpan = " << span.longestSpan() << std::endl;	
 }

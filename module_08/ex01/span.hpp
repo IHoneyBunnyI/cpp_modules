@@ -8,9 +8,9 @@ class Span
 		unsigned int N;
 		std::vector<int> arr;
 		int counter;
+		Span();
 	public:
 		~Span();
-		Span();
 		Span(unsigned int N);
 		Span(const Span& ref);
 		Span& operator = (const Span& ref);
